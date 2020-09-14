@@ -214,6 +214,415 @@ static const TypeInfo nucleo_f103rb_machine = {
 /**/
 };
 
+// ----- ST NUCLEO-F103RB-Taffic -----------------------------------------------------
+#define NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_X (11)
+#define NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_Y (11)
+static GPIOLEDInfo nucleo_f103rb_traffic_leds_info[] = {
+    {
+        .name = "led:green",
+        .active_low = false,
+        .colour_name = "green",
+        .x = 277,
+        .y = 271,
+        .w = 8,
+        .h = 6,
+        .gpio_path = DEVICE_PATH_STM32_GPIO_A,
+        .irq_name = STM32_IRQ_GPIO_ODR_OUT,
+        .gpio_bit = 5,
+    /**/
+    },
+    {
+        .name = "led:NB-RED",
+        .active_low = false,
+        .colour_name = "red",
+        .x = (719 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_X),
+        .y = (119 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_Y),
+        .w = 22,
+        .h = 22,
+        .gpio_path = DEVICE_PATH_STM32_GPIO_B,
+        .irq_name = STM32_IRQ_GPIO_ODR_OUT,
+        .gpio_bit = 0,
+    /**/
+    },
+    {
+        .name = "led:NB-YELLOW",
+        .active_low = false,
+        .colour_name = "yellow",
+        .x = (719 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_X),
+        .y = (141 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_Y),
+        .w = 22,
+        .h = 22,
+        .gpio_path = DEVICE_PATH_STM32_GPIO_B,
+        .irq_name = STM32_IRQ_GPIO_ODR_OUT,
+        .gpio_bit = 1,
+    /**/
+    },
+    {
+        .name = "led:NB-GREEN",
+        .active_low = false,
+        .colour_name = "green",
+        .x = (719 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_X),
+        .y = (163 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_Y),
+        .w = 22,
+        .h = 22,
+        .gpio_path = DEVICE_PATH_STM32_GPIO_B,
+        .irq_name = STM32_IRQ_GPIO_ODR_OUT,
+        .gpio_bit = 2,
+    /**/
+    },
+    {
+        .name = "led:SB-RED",
+        .active_low = false,
+        .colour_name = "red",
+        .x = (646 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_X),
+        .y = (320 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_Y),
+        .w = 22,
+        .h = 22,
+        .gpio_path = DEVICE_PATH_STM32_GPIO_B,
+        .irq_name = STM32_IRQ_GPIO_ODR_OUT,
+        .gpio_bit = 4,
+    /**/
+    },
+    {
+        .name = "led:SB-YELLOW",
+        .active_low = false,
+        .colour_name = "yellow",
+        .x = (646 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_X),
+        .y = (342 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_Y),
+        .w = 22,
+        .h = 22,
+        .gpio_path = DEVICE_PATH_STM32_GPIO_B,
+        .irq_name = STM32_IRQ_GPIO_ODR_OUT,
+        .gpio_bit = 5,
+    /**/
+    },
+    {
+        .name = "led:SB-GREEN",
+        .active_low = false,
+        .colour_name = "green",
+        .x = (646 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_X),
+        .y = (364 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_Y),
+        .w = 22,
+        .h = 22,
+        .gpio_path = DEVICE_PATH_STM32_GPIO_B,
+        .irq_name = STM32_IRQ_GPIO_ODR_OUT,
+        .gpio_bit = 6,
+    /**/
+    },
+    {
+        .name = "led:EB-RED",
+        .active_low = false,
+        .colour_name = "red",
+        .x = (760 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_X),
+        .y = (278 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_Y),
+        .w = 22,
+        .h = 22,
+        .gpio_path = DEVICE_PATH_STM32_GPIO_B,
+        .irq_name = STM32_IRQ_GPIO_ODR_OUT,
+        .gpio_bit = 7,
+    /**/
+    },
+    {
+        .name = "led:EB-YELLOW",
+        .active_low = false,
+        .colour_name = "yellow",
+        .x = (782 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_X),
+        .y = (278 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_Y),
+        .w = 22,
+        .h = 22,
+        .gpio_path = DEVICE_PATH_STM32_GPIO_B,
+        .irq_name = STM32_IRQ_GPIO_ODR_OUT,
+        .gpio_bit = 8,
+    /**/
+    },
+    {
+        .name = "led:EB-GREEN",
+        .active_low = false,
+        .colour_name = "green",
+        .x = (804 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_X),
+        .y = (278 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_Y),
+        .w = 22,
+        .h = 22,
+        .gpio_path = DEVICE_PATH_STM32_GPIO_B,
+        .irq_name = STM32_IRQ_GPIO_ODR_OUT,
+        .gpio_bit = 9,
+    /**/
+    },
+    {
+        .name = "led:WB-RED",
+        .active_low = false,
+        .colour_name = "red",
+        .x = (560 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_X),
+        .y = (206 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_Y),
+        .w = 22,
+        .h = 22,
+        .gpio_path = DEVICE_PATH_STM32_GPIO_B,
+        .irq_name = STM32_IRQ_GPIO_ODR_OUT,
+        .gpio_bit = 10,
+    /**/
+    },
+    {
+        .name = "led:WB-YELLOW",
+        .active_low = false,
+        .colour_name = "yellow",
+        .x = (582 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_X),
+        .y = (206 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_Y),
+        .w = 22,
+        .h = 22,
+        .gpio_path = DEVICE_PATH_STM32_GPIO_B,
+        .irq_name = STM32_IRQ_GPIO_ODR_OUT,
+        .gpio_bit = 11,
+    /**/
+    },
+    {
+        .name = "led:WB-GREEN",
+        .active_low = false,
+        .colour_name = "green",
+        .x = (604 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_X),
+        .y = (206 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_Y),
+        .w = 22,
+        .h = 22,
+        .gpio_path = DEVICE_PATH_STM32_GPIO_B,
+        .irq_name = STM32_IRQ_GPIO_ODR_OUT,
+        .gpio_bit = 12,
+    /**/
+    },
+    { },
+/**/
+};
+//159, 176
+static ButtonGPIOInfo nucleo_f103rb_traffic_buttons_user_info[] = {
+    {
+        .name = "button:user",
+        .x = 176,
+        .y = 194,
+        .w = 28,
+        .h = 28,
+
+        .active_low = true,
+        .gpio_path = DEVICE_PATH_STM32_GPIO_C,
+        .irq_name = STM32_IRQ_GPIO_IDR_IN,
+        .gpio_bit = 13,
+    /**/
+    },
+    {
+        .name = "button:NB-Sensor",
+        .x = (702 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_X),
+        .y = (323 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_Y),
+        .w = 60,
+        .h = 35,
+
+        .active_low = true,
+        .gpio_path = DEVICE_PATH_STM32_GPIO_C,
+        .irq_name = STM32_IRQ_GPIO_IDR_IN,
+        .gpio_bit = 1,
+    /**/
+    },
+    {
+        .name = "button:SB-Sensor",
+        .x = (639 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_X),
+        .y = (157 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_Y),
+        .w = 60,
+        .h = 35,
+
+        .active_low = true,
+        .gpio_path = DEVICE_PATH_STM32_GPIO_C,
+        .irq_name = STM32_IRQ_GPIO_IDR_IN,
+        .gpio_bit = 0,
+    /**/
+    },
+    {
+        .name = "button:EB-Sensor",
+        .x = (596 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_X),
+        .y = (267 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_Y),
+        .w = 35,
+        .h = 60,
+
+        .active_low = true,
+        .gpio_path = DEVICE_PATH_STM32_GPIO_C,
+        .irq_name = STM32_IRQ_GPIO_IDR_IN,
+        .gpio_bit = 2,
+    /**/
+    },
+    {
+        .name = "button:WB-Sensor",
+        .x = (763 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_X),
+        .y = (202 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_Y),
+        .w = 35,
+        .h = 60,
+
+        .active_low = true,
+        .gpio_path = DEVICE_PATH_STM32_GPIO_C,
+        .irq_name = STM32_IRQ_GPIO_IDR_IN,
+        .gpio_bit = 3,
+    /**/
+    },
+    {
+        .name = "button:BTN1",
+        .x = (464 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_X),
+        .y = (450 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_Y),
+        .w = 35,
+        .h = 35,
+
+        .active_low = true,
+        .gpio_path = DEVICE_PATH_STM32_GPIO_C,
+        .irq_name = STM32_IRQ_GPIO_IDR_IN,
+        .gpio_bit = 4,
+    /**/
+    },
+    {
+        .name = "button:BTN2",
+        .x = (506 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_X),
+        .y = (450 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_Y),
+        .w = 35,
+        .h = 35,
+
+        .active_low = true,
+        .gpio_path = DEVICE_PATH_STM32_GPIO_C,
+        .irq_name = STM32_IRQ_GPIO_IDR_IN,
+        .gpio_bit = 5,
+    /**/
+    },
+    {
+        .name = "button:BTN3",
+        .x = (547 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_X),
+        .y = (450 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_Y),
+        .w = 35,
+        .h = 35,
+
+        .active_low = true,
+        .gpio_path = DEVICE_PATH_STM32_GPIO_C,
+        .irq_name = STM32_IRQ_GPIO_IDR_IN,
+        .gpio_bit = 6,
+    /**/
+    },
+    {
+        .name = "button:BTN4",
+        .x = (589 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_X),
+        .y = (450 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_Y),
+        .w = 35,
+        .h = 35,
+
+        .active_low = true,
+        .gpio_path = DEVICE_PATH_STM32_GPIO_C,
+        .irq_name = STM32_IRQ_GPIO_IDR_IN,
+        .gpio_bit = 7,
+    /**/
+    },
+    {
+        .name = "button:BTN5",
+        .x = (768 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_X),
+        .y = (450 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_Y),
+        .w = 35,
+        .h = 35,
+
+        .active_low = true,
+        .gpio_path = DEVICE_PATH_STM32_GPIO_C,
+        .irq_name = STM32_IRQ_GPIO_IDR_IN,
+        .gpio_bit = 4,
+    /**/
+    },
+    {
+        .name = "button:BTN6",
+        .x = (811 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_X),
+        .y = (450 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_Y),
+        .w = 35,
+        .h = 35,
+
+        .active_low = true,
+        .gpio_path = DEVICE_PATH_STM32_GPIO_C,
+        .irq_name = STM32_IRQ_GPIO_IDR_IN,
+        .gpio_bit = 5,
+    /**/
+    },
+    {
+        .name = "button:BTN7",
+        .x = (852 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_X),
+        .y = (450 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_Y),
+        .w = 35,
+        .h = 35,
+
+        .active_low = true,
+        .gpio_path = DEVICE_PATH_STM32_GPIO_C,
+        .irq_name = STM32_IRQ_GPIO_IDR_IN,
+        .gpio_bit = 6,
+    /**/
+    },
+    {
+        .name = "button:BTN8",
+        .x = (893 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_X),
+        .y = (450 + NUCLEO_F103RB_TRAFFIC_DISPLAY_OFFSET_Y),
+        .w = 35,
+        .h = 35,
+
+        .active_low = true,
+        .gpio_path = DEVICE_PATH_STM32_GPIO_C,
+        .irq_name = STM32_IRQ_GPIO_IDR_IN,
+        .gpio_bit = 7,
+    /**/
+    },
+
+
+    { },
+/**/
+};
+//254, 173
+static ButtonResetInfo nucleo_f103rb_traffic_button_reset_info = {
+    .x = 272,
+    .y = 194,
+    .w = 28,
+    .h = 28,
+/**/
+};
+
+static void nucleo_f103rb_traffic_board_init_callback(MachineState *machine)
+{
+    CortexMBoardState *board = CORTEXM_BOARD_STATE(machine);
+
+    cortexm_board_greeting(board);
+    BoardGraphicContext *board_graphic_context =
+            cortexm_board_init_graphic_image(board, "NUCLEO-F103RB-TRAFFIC.jpg");
+
+    {
+        // Create the MCU
+        Object *mcu = cm_object_new_mcu(machine, TYPE_STM32F103RB);
+
+        // The board has no oscillators.
+        cm_object_property_set_int(mcu, 0, "hse-freq-hz"); // N/A
+        cm_object_property_set_int(mcu, 0, "lse-freq-hz"); // N/A
+
+        cm_object_realize(mcu);
+    }
+
+    Object *peripheral = cm_container_get_peripheral();
+    // Create board LEDs.
+    gpio_led_create_from_info(peripheral, nucleo_f103rb_traffic_leds_info,
+            board_graphic_context);
+
+    if (board_graphic_context != NULL) {
+        // Create board buttons.
+        button_reset_create_from_info(peripheral,
+                &nucleo_f103rb_traffic_button_reset_info, board_graphic_context);
+        button_gpio_create_from_info(peripheral,
+                nucleo_f103rb_traffic_buttons_user_info, board_graphic_context);
+    }
+}
+
+static void nucleo_f103rb_traffic_board_class_init_callback(ObjectClass *oc, void *data)
+{
+    MachineClass *mc = MACHINE_CLASS(oc);
+
+    mc->desc = "ST Nucleo Development Board for STM32 F1 series with traffic Extention";
+    mc->init = nucleo_f103rb_traffic_board_init_callback;
+}
+
+static const TypeInfo nucleo_f103rb_traffic_machine = {
+    .name = BOARD_TYPE_NAME("NUCLEO-F103RB-TRAFFIC"),
+    .parent = TYPE_CORTEXM_BOARD,
+    .class_init = nucleo_f103rb_traffic_board_class_init_callback
+/**/
+};
+
 #if 0
 /* ----- ST NUCLEO-L152RE ----- */
 static void nucleo_l152re_board_init_callback(MachineState *machine);
@@ -351,6 +760,7 @@ static void stm32_machines_init(void)
 {
     type_register_static(&nucleo_f072rb_machine);
     type_register_static(&nucleo_f103rb_machine);
+    type_register_static(&nucleo_f103rb_traffic_machine);
     type_register_static(&nucleo_f411re_machine);
 #if 0
     qemu_register_machine(&nucleo_l152re_machine);
