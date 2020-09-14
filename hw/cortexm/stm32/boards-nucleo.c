@@ -415,7 +415,7 @@ static ButtonGPIOInfo nucleo_f103rb_traffic_buttons_user_info[] = {
         .active_low = true,
         .gpio_path = DEVICE_PATH_STM32_GPIO_C,
         .irq_name = STM32_IRQ_GPIO_IDR_IN,
-        .gpio_bit = 1,
+        .gpio_bit = 0,
     /**/
     },
     {
@@ -428,7 +428,7 @@ static ButtonGPIOInfo nucleo_f103rb_traffic_buttons_user_info[] = {
         .active_low = true,
         .gpio_path = DEVICE_PATH_STM32_GPIO_C,
         .irq_name = STM32_IRQ_GPIO_IDR_IN,
-        .gpio_bit = 0,
+        .gpio_bit = 1,
     /**/
     },
     {
@@ -519,7 +519,7 @@ static ButtonGPIOInfo nucleo_f103rb_traffic_buttons_user_info[] = {
         .active_low = true,
         .gpio_path = DEVICE_PATH_STM32_GPIO_C,
         .irq_name = STM32_IRQ_GPIO_IDR_IN,
-        .gpio_bit = 4,
+        .gpio_bit = 8,
     /**/
     },
     {
@@ -532,7 +532,7 @@ static ButtonGPIOInfo nucleo_f103rb_traffic_buttons_user_info[] = {
         .active_low = true,
         .gpio_path = DEVICE_PATH_STM32_GPIO_C,
         .irq_name = STM32_IRQ_GPIO_IDR_IN,
-        .gpio_bit = 5,
+        .gpio_bit = 9,
     /**/
     },
     {
@@ -545,7 +545,7 @@ static ButtonGPIOInfo nucleo_f103rb_traffic_buttons_user_info[] = {
         .active_low = true,
         .gpio_path = DEVICE_PATH_STM32_GPIO_C,
         .irq_name = STM32_IRQ_GPIO_IDR_IN,
-        .gpio_bit = 6,
+        .gpio_bit = 10,
     /**/
     },
     {
@@ -558,7 +558,7 @@ static ButtonGPIOInfo nucleo_f103rb_traffic_buttons_user_info[] = {
         .active_low = true,
         .gpio_path = DEVICE_PATH_STM32_GPIO_C,
         .irq_name = STM32_IRQ_GPIO_IDR_IN,
-        .gpio_bit = 7,
+        .gpio_bit = 11,
     /**/
     },
 
